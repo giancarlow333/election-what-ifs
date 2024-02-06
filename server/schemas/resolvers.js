@@ -19,27 +19,8 @@ const resolvers = {
     addElection: async (parent, { name }) => {
       return Election.create({ name });
     },
-    addSkill: async (parent, { electionId, skill }) => {
-      return Election.findOneAndUpdate(
-        { _id: electionId },
-        {
-          $addToSet: { skills: skill },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
     removeElection: async (parent, { electionId }) => {
       return Election.findOneAndDelete({ _id: electionId });
-    },
-    removeSkill: async (parent, { electionId, skill }) => {
-      return Election.findOneAndUpdate(
-        { _id: electionId },
-        { $pull: { skills: skill } },
-        { new: true }
-      );
     },
   },
 };
