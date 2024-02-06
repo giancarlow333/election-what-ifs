@@ -2,7 +2,20 @@ const typeDefs = `
   type Election {
     _id: ID
     name: String
-    skills: [String]!
+    districts: [District]!
+  }
+
+  type District {
+    _id: ID
+    name: String
+    candidates: [Candidate]!
+  }
+
+  type Candidate {
+    _id: ID
+    name: String
+    party: String
+    votes: Int
   }
 
   # Important for useQuery: We define our Query type to inform our entry points
@@ -16,9 +29,7 @@ const typeDefs = `
   # Important for useMutation: We define our Mutation type to inform our entrypoints
   type Mutation {
     addElection(name: String!): Election
-    addSkill(electionId: ID!, skill: String!): Election
     removeElection(electionId: ID!): Election
-    removeSkill(electionId: ID!, skill: String!): Election
   }
 `;
 
