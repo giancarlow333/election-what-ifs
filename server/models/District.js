@@ -1,20 +1,20 @@
 const { Schema, model } = require('mongoose');
 
-const electionSchema = new Schema({
+const districtSchema = new Schema({
   name: {
     type: String,
     required: true,
     unique: true,
     trim: true,
   },
-  districts: [
+  candidates: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Districts'
+      ref: 'Candidates'
     }
   ],
 });
 
-const Election = model('Election', electionSchema);
+const District = model('District', districtSchema);
 
-module.exports = Election;
+module.exports = District;
