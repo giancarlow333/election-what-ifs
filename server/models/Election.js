@@ -7,6 +7,11 @@ const electionSchema = new Schema({
     unique: true,
     trim: true,
   },
+  electoral: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
   districts: [
     {
       type: Schema.Types.ObjectId,

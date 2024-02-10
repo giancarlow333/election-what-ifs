@@ -8,6 +8,7 @@ const typeDefs = `
   type District {
     _id: ID
     name: String
+    electoral: Int
     candidates: [Candidate]!
   }
 
@@ -30,6 +31,8 @@ const typeDefs = `
   type Mutation {
     addElection(name: String!): Election
     removeElection(electionId: ID!): Election
+    addDistrict(name: String!, electoral: Int): District
+    removeDistrict(districtId: ID!): District
   }
 `;
 
