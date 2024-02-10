@@ -2,14 +2,14 @@ const typeDefs = `
   type Election {
     _id: ID
     name: String
-    districts: [District]!
+    districts: [District]
   }
 
   type District {
     _id: ID
     name: String
     electoral: Int
-    candidates: [Candidate]!
+    candidates: [Candidate]
   }
 
   type Candidate {
