@@ -25,6 +25,7 @@ const typeDefs = `
     elections: [Election]!
     # Important for Query Variables: The profile query field allows us to fetch the specific Profile data by using the electionId argument and providing a non-null ID value as the argument value
     election(electionId: ID!): Election
+    districts: [District]!
   }
 
   # Important for useMutation: We define our Mutation type to inform our entrypoints
