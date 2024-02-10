@@ -18,6 +18,9 @@ const resolvers = {
     districts: async () => {
       return District.find();
     },
+    candidates: async () => {
+      return Candidate.find();
+    },
   },
   // Important for useMutation: The resolver matches the typeDefs entry point and informs the request of the relevant data
   Mutation: {
