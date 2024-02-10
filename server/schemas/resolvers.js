@@ -43,7 +43,7 @@ const resolvers = {
       return District.findOneAndUpdate(
         { _id: districtId },
         {
-          $addToSet: { Candidates: { _id: candidateId } },
+          $addToSet: { candidates: { _id: candidateId } },
         },
         {
           new: true,
