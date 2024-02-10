@@ -35,6 +35,8 @@ const typeDefs = `
     removeDistrict(districtId: ID!): District
     addCandidate(name: String!, party: String, votes: Int!): Candidate
     removeCandidate(candidateId: ID!): Candidate
+    addCandidateToDistrict(districtId: ID!, candidateId: ID!): District
+    addDistrictToElection(electionId: ID!, districtId: ID!): Election
   }
 `;
 

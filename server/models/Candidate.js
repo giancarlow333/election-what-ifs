@@ -15,6 +15,7 @@ const candidateSchema = new Schema({
   },
   votes: {
     type: Number,
+    required: true,
     default: 0,
   }
 });

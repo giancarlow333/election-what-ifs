@@ -1,4 +1,6 @@
-const { Election, District, Candidate } = require('../models');
+const { Election } = require('../models');
+const { District } = require('../models');
+const { Candidate } = require('../models');
 
 const resolvers = {
   // Important for useQuery: The resolver matches the typeDefs entry point and informs the request of the relevant data
@@ -33,6 +35,21 @@ const resolvers = {
     },
     removeCandidate: async (parent, { candidateId }) => {
       return Candidate.findOneAndDelete({ _id: candidateId });
+    },
+    addCandidateToDistrict: async (parent, { districtId, candidateId }) => {
+      return District.findOneAndUpdate(
+        { _id: districtId },
+        {
+          $addToSet: { Candidates: { _id: candidateId } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    addDistrictToElection: async (parent, { districtId }) => {
+
     },
   },
 };
