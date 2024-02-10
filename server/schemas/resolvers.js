@@ -1,4 +1,4 @@
-const { Election, District } = require('../models');
+const { Election, District, Candidate } = require('../models');
 
 const resolvers = {
   // Important for useQuery: The resolver matches the typeDefs entry point and informs the request of the relevant data
@@ -27,6 +27,12 @@ const resolvers = {
     },
     removeDistrict: async (parent, { districtId }) => {
       return District.findOneAndDelete({ _id: districtId });
+    },
+    addCandidate: async (parent, { name, party, votes }) => {
+      return Candidate.create({ name, party, votes });
+    },
+    removeCandidate: async (parent, { candidateId }) => {
+      return Candidate.findOneAndDelete({ _id: candidateId });
     },
   },
 };
